@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		85486A812A862CDF00EA6740 /* AwesomeNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A802A862CDF00EA6740 /* AwesomeNotesApp.swift */; };
-		85486A832A862CDF00EA6740 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A822A862CDF00EA6740 /* ContentView.swift */; };
+		85486A832A862CDF00EA6740 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A822A862CDF00EA6740 /* LoginView.swift */; };
 		85486A852A862CE000EA6740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85486A842A862CE000EA6740 /* Assets.xcassets */; };
 		85486A882A862CE000EA6740 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85486A872A862CE000EA6740 /* Preview Assets.xcassets */; };
 		85486A922A862CE000EA6740 /* AwesomeNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A912A862CE000EA6740 /* AwesomeNotesTests.swift */; };
 		85486A9C2A862CE000EA6740 /* AwesomeNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A9B2A862CE000EA6740 /* AwesomeNotesUITests.swift */; };
 		85486A9E2A862CE000EA6740 /* AwesomeNotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A9D2A862CE000EA6740 /* AwesomeNotesUITestsLaunchTests.swift */; };
+		85486AAF2A86494100EA6740 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486AAE2A86494100EA6740 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		85486A7D2A862CDF00EA6740 /* AwesomeNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85486A802A862CDF00EA6740 /* AwesomeNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeNotesApp.swift; sourceTree = "<group>"; };
-		85486A822A862CDF00EA6740 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		85486A822A862CDF00EA6740 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		85486A842A862CE000EA6740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85486A872A862CE000EA6740 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		85486A8D2A862CE000EA6740 /* AwesomeNotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeNotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,7 @@
 		85486A972A862CE000EA6740 /* AwesomeNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85486A9B2A862CE000EA6740 /* AwesomeNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeNotesUITests.swift; sourceTree = "<group>"; };
 		85486A9D2A862CE000EA6740 /* AwesomeNotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeNotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		85486AAE2A86494100EA6740 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,8 @@
 		85486A7F2A862CDF00EA6740 /* AwesomeNotes */ = {
 			isa = PBXGroup;
 			children = (
+				85486AAA2A86433B00EA6740 /* Modules */,
 				85486A802A862CDF00EA6740 /* AwesomeNotesApp.swift */,
-				85486A822A862CDF00EA6740 /* ContentView.swift */,
 				85486A842A862CE000EA6740 /* Assets.xcassets */,
 				85486A862A862CE000EA6740 /* Preview Content */,
 			);
@@ -125,6 +127,39 @@
 				85486A9D2A862CE000EA6740 /* AwesomeNotesUITestsLaunchTests.swift */,
 			);
 			path = AwesomeNotesUITests;
+			sourceTree = "<group>";
+		};
+		85486AAA2A86433B00EA6740 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				85486AAB2A86435C00EA6740 /* Login */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		85486AAB2A86435C00EA6740 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				85486AAD2A86449500EA6740 /* ViewModels */,
+				85486AAC2A86436F00EA6740 /* Views */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		85486AAC2A86436F00EA6740 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				85486A822A862CDF00EA6740 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		85486AAD2A86449500EA6740 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				85486AAE2A86494100EA6740 /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85486A832A862CDF00EA6740 /* ContentView.swift in Sources */,
+				85486A832A862CDF00EA6740 /* LoginView.swift in Sources */,
 				85486A812A862CDF00EA6740 /* AwesomeNotesApp.swift in Sources */,
+				85486AAF2A86494100EA6740 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
