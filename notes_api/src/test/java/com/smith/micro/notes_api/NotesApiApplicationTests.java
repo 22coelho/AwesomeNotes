@@ -1,10 +1,10 @@
-package com.tiago.coelho.NoteApp;
+package com.smith.micro.notes_api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NoteAppApplicationTests {
+class NotesApiApplicationTests {
 
 	@Test
 	void contextLoads() {
