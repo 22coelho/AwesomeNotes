@@ -1,9 +1,17 @@
 package com.smith.micro.notes_api.entity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import jakarta.persistence.*;
 
 import java.util.Date;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="note")
 public class Note {
@@ -27,15 +35,6 @@ public class Note {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at")
     private Date createdAt;
-
-    public Note() {
-        // Default constructor
-    }
-
-    public Note(String title, String description) {
-        this.title = title;
-        this.description = description;
-    }
 
     public int getId() {
         return id;

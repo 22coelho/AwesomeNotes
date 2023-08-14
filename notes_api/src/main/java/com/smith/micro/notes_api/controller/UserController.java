@@ -19,13 +19,6 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/getAllUsers")
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
-        System.out.println(users);
-        return ResponseEntity.ok(users);
-    }
-
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestParam String username, @RequestParam String password) {
         return ResponseEntity.ok(userService.register(username, password));
