@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  AwesomeNotes
+
+  Created by Tiago Coelho on 15/08/2023.
+  
+*/
+
+"serverPath" = "http://localhost:8080/notes-api/users"
