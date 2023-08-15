@@ -6,5 +6,6 @@
 //
 
 struct AuthResponse: Decodable {
-    let token: String
+    let access_token: String
+    let refresh_token: String
 }

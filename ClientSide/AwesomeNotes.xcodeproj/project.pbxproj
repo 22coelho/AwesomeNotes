@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		544E461BEE748D7A2E78DF79 /* Pods_AwesomeNotes_AwesomeNotesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573E216F124425D69399E6EB /* Pods_AwesomeNotes_AwesomeNotesUITests.framework */; };
 		7567C56C1C6AFAE873678BFD /* Pods_AwesomeNotesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A95602F50134DCFD241D42EA /* Pods_AwesomeNotesTests.framework */; };
+		851A43A92A8BB2ED0074E1A7 /* LoginViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43A82A8BB2ED0074E1A7 /* LoginViewModelProtocol.swift */; };
+		851A43AF2A8BB93A0074E1A7 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43AE2A8BB93A0074E1A7 /* RegisterView.swift */; };
+		851A43B32A8BBAC80074E1A7 /* RegisterViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43B22A8BBAC80074E1A7 /* RegisterViewModelProtocol.swift */; };
+		851A43B52A8BBBA60074E1A7 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43B42A8BBBA60074E1A7 /* RegisterViewModel.swift */; };
 		85486A812A862CDF00EA6740 /* AwesomeNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A802A862CDF00EA6740 /* AwesomeNotesApp.swift */; };
 		85486A832A862CDF00EA6740 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A822A862CDF00EA6740 /* LoginView.swift */; };
 		85486A852A862CE000EA6740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85486A842A862CE000EA6740 /* Assets.xcassets */; };
@@ -17,7 +21,6 @@
 		85486A9C2A862CE000EA6740 /* AwesomeNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A9B2A862CE000EA6740 /* AwesomeNotesUITests.swift */; };
 		85486A9E2A862CE000EA6740 /* AwesomeNotesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A9D2A862CE000EA6740 /* AwesomeNotesUITestsLaunchTests.swift */; };
 		85486AAF2A86494100EA6740 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486AAE2A86494100EA6740 /* LoginViewModel.swift */; };
-		85DF580E2A8BA12700C36384 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DF580D2A8BA12700C36384 /* LoginModel.swift */; };
 		85DF58102A8BA13900C36384 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DF580F2A8BA13900C36384 /* UserCredentials.swift */; };
 		85DF58122A8BA14300C36384 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DF58112A8BA14300C36384 /* AuthResponse.swift */; };
 		85DF58152A8BA4C900C36384 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85DF58142A8BA4C900C36384 /* Localizable.strings */; };
@@ -51,6 +54,10 @@
 		7485E0338D7491C4CB6D5ADB /* Pods-AwesomeNotesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeNotesTests.release.xcconfig"; path = "Target Support Files/Pods-AwesomeNotesTests/Pods-AwesomeNotesTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B8386CD62F48D1CA6C3483B /* Pods-AwesomeNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeNotes.debug.xcconfig"; path = "Target Support Files/Pods-AwesomeNotes/Pods-AwesomeNotes.debug.xcconfig"; sourceTree = "<group>"; };
 		818FED811C76A1ADE736EEE3 /* Pods-AwesomeNotesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeNotesTests.debug.xcconfig"; path = "Target Support Files/Pods-AwesomeNotesTests/Pods-AwesomeNotesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		851A43A82A8BB2ED0074E1A7 /* LoginViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelProtocol.swift; sourceTree = "<group>"; };
+		851A43AE2A8BB93A0074E1A7 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		851A43B22A8BBAC80074E1A7 /* RegisterViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelProtocol.swift; sourceTree = "<group>"; };
+		851A43B42A8BBBA60074E1A7 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		85486A7D2A862CDF00EA6740 /* AwesomeNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85486A802A862CDF00EA6740 /* AwesomeNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeNotesApp.swift; sourceTree = "<group>"; };
 		85486A822A862CDF00EA6740 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -62,11 +69,10 @@
 		85486A9B2A862CE000EA6740 /* AwesomeNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeNotesUITests.swift; sourceTree = "<group>"; };
 		85486A9D2A862CE000EA6740 /* AwesomeNotesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeNotesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		85486AAE2A86494100EA6740 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		85DF580D2A8BA12700C36384 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		85DF580F2A8BA13900C36384 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		85DF58112A8BA14300C36384 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		85DF58142A8BA4C900C36384 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		85DF58162A8BA85600C36384 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		85DF58162A8BA85600C36384 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A95602F50134DCFD241D42EA /* Pods_AwesomeNotesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeNotesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +104,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		851A43AC2A8BB9250074E1A7 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				851A43B12A8BBAAC0074E1A7 /* Protocols */,
+				85486AAD2A86449500EA6740 /* ViewModels */,
+				85DF580C2A8BA10E00C36384 /* Models */,
+				851A43AD2A8BB92E0074E1A7 /* Views */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		851A43AD2A8BB92E0074E1A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				85486A822A862CDF00EA6740 /* LoginView.swift */,
+				851A43AE2A8BB93A0074E1A7 /* RegisterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		851A43B12A8BBAAC0074E1A7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				851A43A82A8BB2ED0074E1A7 /* LoginViewModelProtocol.swift */,
+				851A43B22A8BBAC80074E1A7 /* RegisterViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		85486A742A862CDF00EA6740 = {
 			isa = PBXGroup;
 			children = (
@@ -161,33 +196,16 @@
 		85486AAA2A86433B00EA6740 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				85486AAB2A86435C00EA6740 /* Login */,
+				851A43AC2A8BB9250074E1A7 /* Authentication */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		85486AAB2A86435C00EA6740 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				85DF580C2A8BA10E00C36384 /* Models */,
-				85486AAD2A86449500EA6740 /* ViewModels */,
-				85486AAC2A86436F00EA6740 /* Views */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		85486AAC2A86436F00EA6740 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				85486A822A862CDF00EA6740 /* LoginView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		85486AAD2A86449500EA6740 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				85486AAE2A86494100EA6740 /* LoginViewModel.swift */,
+				851A43B42A8BBBA60074E1A7 /* RegisterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -195,7 +213,6 @@
 		85DF580C2A8BA10E00C36384 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				85DF580D2A8BA12700C36384 /* LoginModel.swift */,
 				85DF580F2A8BA13900C36384 /* UserCredentials.swift */,
 				85DF58112A8BA14300C36384 /* AuthResponse.swift */,
 			);
@@ -230,7 +247,6 @@
 				818FED811C76A1ADE736EEE3 /* Pods-AwesomeNotesTests.debug.xcconfig */,
 				7485E0338D7491C4CB6D5ADB /* Pods-AwesomeNotesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -475,10 +491,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				85486A832A862CDF00EA6740 /* LoginView.swift in Sources */,
-				85DF580E2A8BA12700C36384 /* LoginModel.swift in Sources */,
+				851A43AF2A8BB93A0074E1A7 /* RegisterView.swift in Sources */,
 				85486A812A862CDF00EA6740 /* AwesomeNotesApp.swift in Sources */,
 				85486AAF2A86494100EA6740 /* LoginViewModel.swift in Sources */,
 				85DF58122A8BA14300C36384 /* AuthResponse.swift in Sources */,
+				851A43B32A8BBAC80074E1A7 /* RegisterViewModelProtocol.swift in Sources */,
+				851A43A92A8BB2ED0074E1A7 /* LoginViewModelProtocol.swift in Sources */,
+				851A43B52A8BBBA60074E1A7 /* RegisterViewModel.swift in Sources */,
 				85DF58102A8BA13900C36384 /* UserCredentials.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
