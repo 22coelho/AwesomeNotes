@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct AddNoteView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var title = ""
     @State private var description = ""
     @State private var shouldNavigate = false
     var viewModel: NoteListViewModel
     
     var body: some View {
-        NavigationView {
+        HStack {
             Form {
                 Section() {
                     TextField("Title",
@@ -27,22 +28,21 @@ struct AddNoteView: View {
                 
                 Section {
                     Button("Save") {
-                        viewModel.addNote(title: title, description: description))
-                        shouldNavigate = true
-                    }
-                    ZStack {
-                        if shouldNavigate { // next will be instantiated when data got fetched
-                            NavigationLink(
-                                destination: NoteListView(),
-                                isActive: $shouldNavigate,
-                                label: {}
-                            )
+                        viewModel.addNote(title: title,
+                                          description: description) { result in
+                            switch result {
+                            case .success(let success):
+                                dismiss.callAsFunction()
+                            case .failure(let failure):
+                                print(failure)
+                            }
                         }
                     }
                 }
             }
-            .navigationBarTitle("Create Note")
         }
+        .navigationBarTitle("Create Note")
+        
     }
 }
 

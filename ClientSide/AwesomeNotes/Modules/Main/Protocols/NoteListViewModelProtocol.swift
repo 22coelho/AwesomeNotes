@@ -6,7 +6,9 @@
 //
 
 protocol NoteListViewModelProtocol {
-    func addNote(note: Note)
+    func addNote(title: String,
+                 description: String,
+                 completion: @escaping (Result<Note, Error>) -> Void)
     
     func deleteNote(at index: Int)
     

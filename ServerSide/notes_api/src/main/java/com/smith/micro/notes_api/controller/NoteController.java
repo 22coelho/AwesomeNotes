@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/notes-api/notes")
@@ -26,8 +27,11 @@ public class NoteController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<NoteResponse> addNote(@RequestParam String username) {
-        return ResponseEntity.ok(noteService.addNote(username, "template"));
+    public ResponseEntity<NoteResponse> addNote(@RequestParam String username, @RequestBody Map<String, String> requestBody) {
+        String title = requestBody.get("title");
+        String description = requestBody.get("description");
+
+        return ResponseEntity.ok(noteService.addNote(username, description, title));
     }
 
     @DeleteMapping("/remove")

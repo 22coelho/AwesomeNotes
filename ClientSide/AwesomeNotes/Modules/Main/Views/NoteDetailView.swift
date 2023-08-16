@@ -10,21 +10,22 @@ import SwiftUI
 struct NoteDetailView: View {
     var note: Note
     var body: some View {
-        NavigationView {
+        HStack {
             
-        }.navigationTitle(note.title)
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        // Handle the action you want
-                    }) {
-                        Image(systemName: "trash")
-                            .font(Font.system(size: Constants.toolbarIconSize,
-                                              weight: .semibold))
-                    }
+        }
+        .navigationTitle(note.title)
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    // Handle the action you want
+                }) {
+                    Image(systemName: "trash")
+                        .font(Font.system(size: Constants.toolbarIconSize,
+                                          weight: .semibold))
                 }
             }
+        }
     }
 }
 

@@ -55,10 +55,10 @@ public class NoteService {
         return responseList;
     }
 
-    public NoteResponse addNote(String username, String description) {
+    public NoteResponse addNote(String username, String description, String title) {
         User user = userRepository.findByUsername(username).orElseThrow();
         Note note = Note.builder()
-                .title("Title")
+                .title(title)
                 .description(description)
                 .user(user)
                 .build();
