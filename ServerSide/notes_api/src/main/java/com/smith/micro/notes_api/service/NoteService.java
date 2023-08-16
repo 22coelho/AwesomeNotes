@@ -37,6 +37,24 @@ public class NoteService {
         return responseList;
     }
 
+    public List<NoteResponse> getAllNotes() {
+
+        List<Note> list = noteRepository.findAll();
+        List<NoteResponse> responseList = new ArrayList<>();
+        for (Note note : list) {
+            NoteResponse noteResponse = NoteResponse.builder()
+                    .id(note.getId())
+                    .title(note.getTitle())
+                    .description(note.getDescription())
+                    .createdAt(note.getCreatedAt())
+                    .username(note.getUser().getUsername()).build();
+
+            responseList.add(noteResponse);
+        }
+
+        return responseList;
+    }
+
     public NoteResponse addNote(String username, String description) {
         User user = userRepository.findByUsername(username).orElseThrow();
         Note note = Note.builder()

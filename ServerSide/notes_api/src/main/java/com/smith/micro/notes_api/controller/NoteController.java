@@ -20,6 +20,11 @@ public class NoteController {
         return ResponseEntity.ok(noteService.getAllNotesFromUsername(username));
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<NoteResponse>> getAllNotes() {
+        return ResponseEntity.ok(noteService.getAllNotes());
+    }
+
     @PostMapping("/add")
     public ResponseEntity<NoteResponse> addNote(@RequestParam String username) {
         return ResponseEntity.ok(noteService.addNote(username, "template"));

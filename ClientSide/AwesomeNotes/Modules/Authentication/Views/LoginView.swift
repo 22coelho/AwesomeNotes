@@ -10,7 +10,8 @@ import SwiftUI
 struct LoginView: View {
     @State private var username = ""
     @State private var password = ""
-    private var viewModel = LoginViewModel()
+    @State private var shouldNavigate = false
+    private var viewModel = AuthenticationViewModel()
     
     var body: some View {
         NavigationView {
@@ -45,8 +46,8 @@ struct LoginView: View {
                     viewModel.login(credentials: UserCredentials(username: username,
                                                                  password: password)) { result in
                         switch result {
-                        case .success(let authResponse):
-                            print("SUCESSO \(authResponse)")
+                        case .success(_):
+                            shouldNavigate = true
                         case .failure(let error):
                             print("erro \(error.localizedDescription)")
                         }
@@ -67,6 +68,15 @@ struct LoginView: View {
                 .padding(.bottom, Constants.Button.bottomPadding)
                 .disabled((username.isEmpty || password.isEmpty))
                 
+                ZStack {
+                    if shouldNavigate { // next will be instantiated when data got fetched
+                        NavigationLink(
+                            destination: NoteListView(viewModel: NoteListViewModel()),
+                            isActive: $shouldNavigate,
+                            label: {}
+                        )
+                    }
+                }
                 NavigationLink(destination: RegisterView()) {
                     Text("Don't have a account? Register")
                 }
