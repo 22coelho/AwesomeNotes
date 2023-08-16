@@ -15,6 +15,8 @@
 		851A43BC2A8CD0E30074E1A7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43BB2A8CD0E30074E1A7 /* Note.swift */; };
 		851A43BF2A8CE7760074E1A7 /* NoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43BE2A8CE7760074E1A7 /* NoteListViewModel.swift */; };
 		851A43C12A8D13AE0074E1A7 /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43C02A8D13AE0074E1A7 /* NoteDetailView.swift */; };
+		851A43C42A8D19DF0074E1A7 /* NoteListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43C32A8D19DF0074E1A7 /* NoteListViewModelProtocol.swift */; };
+		851A43C62A8D1E270074E1A7 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43C52A8D1E270074E1A7 /* AddNoteView.swift */; };
 		85486A812A862CDF00EA6740 /* AwesomeNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A802A862CDF00EA6740 /* AwesomeNotesApp.swift */; };
 		85486A832A862CDF00EA6740 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A822A862CDF00EA6740 /* LoginView.swift */; };
 		85486A852A862CE000EA6740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85486A842A862CE000EA6740 /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 		851A43BB2A8CD0E30074E1A7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		851A43BE2A8CE7760074E1A7 /* NoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModel.swift; sourceTree = "<group>"; };
 		851A43C02A8D13AE0074E1A7 /* NoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailView.swift; sourceTree = "<group>"; };
+		851A43C32A8D19DF0074E1A7 /* NoteListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModelProtocol.swift; sourceTree = "<group>"; };
+		851A43C52A8D1E270074E1A7 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		85486A7D2A862CDF00EA6740 /* AwesomeNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85486A802A862CDF00EA6740 /* AwesomeNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeNotesApp.swift; sourceTree = "<group>"; };
 		85486A822A862CDF00EA6740 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		851A43B62A8CC33D0074E1A7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				851A43C22A8D19CE0074E1A7 /* Protocols */,
 				851A43BD2A8CE7460074E1A7 /* ViewModels */,
 				851A43BA2A8CD0D60074E1A7 /* Models */,
 				851A43B72A8CC35A0074E1A7 /* Views */,
@@ -151,6 +156,7 @@
 			children = (
 				851A43B82A8CC37D0074E1A7 /* NoteListView.swift */,
 				851A43C02A8D13AE0074E1A7 /* NoteDetailView.swift */,
+				851A43C52A8D1E270074E1A7 /* AddNoteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +175,14 @@
 				851A43BE2A8CE7760074E1A7 /* NoteListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		851A43C22A8D19CE0074E1A7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				851A43C32A8D19DF0074E1A7 /* NoteListViewModelProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		85486A742A862CDF00EA6740 = {
@@ -532,8 +546,10 @@
 				851A43AF2A8BB93A0074E1A7 /* RegisterView.swift in Sources */,
 				851A43B92A8CC37D0074E1A7 /* NoteListView.swift in Sources */,
 				85486A812A862CDF00EA6740 /* AwesomeNotesApp.swift in Sources */,
+				851A43C62A8D1E270074E1A7 /* AddNoteView.swift in Sources */,
 				85486AAF2A86494100EA6740 /* AuthenticationViewModel.swift in Sources */,
 				851A43BC2A8CD0E30074E1A7 /* Note.swift in Sources */,
+				851A43C42A8D19DF0074E1A7 /* NoteListViewModelProtocol.swift in Sources */,
 				85DF58122A8BA14300C36384 /* AuthResponse.swift in Sources */,
 				851A43A92A8BB2ED0074E1A7 /* AuthenticationViewModelProtocol.swift in Sources */,
 				851A43BF2A8CE7760074E1A7 /* NoteListViewModel.swift in Sources */,

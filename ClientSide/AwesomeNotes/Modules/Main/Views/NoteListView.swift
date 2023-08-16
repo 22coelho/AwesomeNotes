@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NoteListView: View {
-    @ObservedObject var viewModel: NoteListViewModel
+    @ObservedObject var viewModel: NoteListViewModel = NoteListViewModel()
     
     var body: some View {
         NavigationView {
@@ -27,7 +27,9 @@ struct NoteListView: View {
                         }.background(dragToCenterView(for: note))
                     }
                 }
-                .onDelete(perform: delete)
+                .onDelete { offsets in
+                    viewModel.notes.remove(atOffsets: offsets)
+                }
             }
             .onAppear {
                 viewModel.loadNotes { result in
@@ -46,9 +48,7 @@ struct NoteListView: View {
                         .bold()
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        // Handle the action you want
-                    }) {
+                    NavigationLink(destination: AddNoteView(viewModel: viewModel)) {
                         Image(systemName: "plus")
                             .font(Font.system(size: Constants.toolbarIconSize,
                                               weight: .semibold))
@@ -56,11 +56,6 @@ struct NoteListView: View {
                 }
             }
         }.navigationBarBackButtonHidden(true)
-    }
-    
-    func delete(at offsets: IndexSet) {
-        print("OFFSETS: \(offsets.description)")
-        //notes.remove(atOffsets: offsets)
     }
     
     private func dragToCenterView(for note: Note) -> some View {
@@ -83,7 +78,7 @@ struct NoteListView: View {
     private func parseCreationDate(_ creationDate: String) -> String {
         let dateFormatter = ISO8601DateFormatter()
         dateFormatter.formatOptions = [.withInternetDateTime,
-            .withFractionalSeconds]
+                                       .withFractionalSeconds]
         
         if let date = dateFormatter.date(from: creationDate) {
             let formattedDate = DateFormatter.localizedString(from: date,
@@ -111,6 +106,6 @@ extension NoteListView {
 
 struct NoteListView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteListView(viewModel: NoteListViewModel())
+        NoteListView()
     }
 }

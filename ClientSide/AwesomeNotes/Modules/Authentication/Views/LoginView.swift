@@ -71,7 +71,7 @@ struct LoginView: View {
                 ZStack {
                     if shouldNavigate { // next will be instantiated when data got fetched
                         NavigationLink(
-                            destination: NoteListView(viewModel: NoteListViewModel()),
+                            destination: NoteListView(),
                             isActive: $shouldNavigate,
                             label: {}
                         )

@@ -8,8 +8,8 @@
 import Foundation
 import Alamofire
 
-class NoteListViewModel: ObservableObject {
-    @Published private(set) var notes: [Note] = []
+class NoteListViewModel: ObservableObject, NoteListViewModelProtocol {
+    @Published var notes: [Note] = []
     
     func addNote(note: Note) {
         notes.append(note)

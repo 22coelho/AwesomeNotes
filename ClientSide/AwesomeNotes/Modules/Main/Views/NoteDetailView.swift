@@ -34,11 +34,11 @@ extension NoteDetailView {
     }
 }
 
-struct AddNoteView_Previews: PreviewProvider {
+struct NoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NoteDetailView(note: Note(title: "preview",
-                               description: "description preview",
-                               createdAt: "2023-08-16",
-                               username: "Username preview"))
+                                  description: "description preview",
+                                  createdAt: "2023-08-16",
+                                  username: "Username preview"))
     }
 }
