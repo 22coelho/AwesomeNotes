@@ -20,11 +20,17 @@ struct NoteDetailView: View {
                         // Handle the action you want
                     }) {
                         Image(systemName: "trash")
-                            .font(Font.system(size: 15,
+                            .font(Font.system(size: Constants.toolbarIconSize,
                                               weight: .semibold))
                     }
                 }
             }
+    }
+}
+
+extension NoteDetailView {
+    struct Constants {
+        static let toolbarIconSize: CGFloat = 15
     }
 }
 

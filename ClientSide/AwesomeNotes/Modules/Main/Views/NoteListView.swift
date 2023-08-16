@@ -17,7 +17,7 @@ struct NoteListView: View {
                     NavigationLink(destination: NoteDetailView(note: note)) {
                         HStack {
                             VStack(alignment: .leading,
-                                   spacing: 8) {
+                                   spacing: Constants.noteElementSpacing) {
                                 Text(note.title)
                                     .font(.headline)
                                 Text(parseCreationDate(note.createdAt))
@@ -50,7 +50,7 @@ struct NoteListView: View {
                         // Handle the action you want
                     }) {
                         Image(systemName: "plus")
-                            .font(Font.system(size: 15,
+                            .font(Font.system(size: Constants.toolbarIconSize,
                                               weight: .semibold))
                     }
                 }
@@ -74,9 +74,9 @@ struct NoteListView: View {
             }
         
         return Rectangle()
-            .opacity(0)
-            .frame(width: 80)
-            .offset(x: -40)
+            .opacity(Constants.DragAnimation.opacity)
+            .frame(width: Constants.DragAnimation.width)
+            .offset(x: Constants.DragAnimation.offset)
             .gesture(dragGesture)
     }
     
@@ -93,6 +93,18 @@ struct NoteListView: View {
         } else {
             return "Invalid Date"
         }
+    }
+}
+
+extension NoteListView {
+    struct Constants {
+        struct DragAnimation {
+            static let width: CGFloat = 80
+            static let offset: CGFloat = -40
+            static let opacity: CGFloat = 0
+        }
+        static let toolbarIconSize: CGFloat = 15
+        static let noteElementSpacing: CGFloat = 8
     }
 }
 
