@@ -11,6 +11,7 @@ struct LoginView: View {
     @State private var username = ""
     @State private var password = ""
     @State private var shouldNavigate = false
+    @State private var showErrorDialog = false
     private var viewModel = AuthenticationViewModel()
     
     var body: some View {
@@ -49,6 +50,7 @@ struct LoginView: View {
                         case .success(_):
                             shouldNavigate = true
                         case .failure(let error):
+                            showErrorDialog = true
                             print("erro \(error.localizedDescription)")
                         }
                     }
@@ -71,15 +73,22 @@ struct LoginView: View {
                 ZStack {
                     if shouldNavigate { // next will be instantiated when data got fetched
                         NavigationLink(
-                            destination: NoteListView(),
+                            destination: NoteListView(authViewModel: viewModel),
                             isActive: $shouldNavigate,
                             label: {}
                         )
                     }
                 }
-                NavigationLink(destination: RegisterView()) {
+                NavigationLink(destination: RegisterView(viewModel: viewModel)) {
                     Text("Don't have a account? Register")
                 }
+            }
+            .alert(isPresented: $showErrorDialog) {
+                Alert(
+                    title: Text("Authentication Error"),
+                    message: Text("Your username and/or password are incorrect."),
+                    dismissButton: .default(Text("Try again"))
+                )
             }
             .padding()
             .navigationTitle("Login")

@@ -8,71 +8,68 @@
 import SwiftUI
 
 struct NoteListView: View {
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: NoteListViewModel = NoteListViewModel()
+    var authViewModel: AuthenticationViewModelProtocol
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.notes) { note in
-                    NavigationLink(destination: NoteDetailView(note: note)) {
-                        HStack {
-                            VStack(alignment: .leading,
-                                   spacing: Constants.noteElementSpacing) {
-                                Text(note.title)
-                                    .font(.headline)
-                                Text(parseCreationDate(note.createdAt))
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
+            ZStack(alignment: .bottom) {
+                List {
+                    ForEach(viewModel.notes) { note in
+                        NavigationLink(destination: NoteDetailView(viewModel: viewModel,
+                                                                   note: note)) {
+                            HStack {
+                                VStack(alignment: .leading,
+                                       spacing: Constants.noteElementSpacing) {
+                                    Text(note.title)
+                                        .font(.headline)
+                                    Text(parseCreationDate(note.createdAt))
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+                                }
                             }
-                        }.background(dragToCenterView(for: note))
+                        }
+                    }
+                    .onDelete { offsets in
+                        viewModel.deleteNote(at: offsets)
+                        
                     }
                 }
-                .onDelete { offsets in
-                    viewModel.notes.remove(atOffsets: offsets)
-                }
-            }
-            .onAppear {
-                viewModel.loadNotes { result in
-                    switch result {
-                    case .success(let success):
-                        print(success)
-                    case .failure(let failure):
-                        print(failure)
+                .onAppear {
+                    viewModel.loadNotes { result in
+                        print(result)
                     }
                 }
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Text("Notes")
-                        .font(.largeTitle)
-                        .bold()
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: AddNoteView(viewModel: viewModel)) {
-                        Image(systemName: "plus")
-                            .font(Font.system(size: Constants.toolbarIconSize,
-                                              weight: .semibold))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Text("Notes")
+                            .font(.largeTitle)
+                            .bold()
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: AddNoteView(viewModel: viewModel)) {
+                            Image(systemName: "plus")
+                                .font(Font.system(size: Constants.toolbarIconSize,
+                                                  weight: .semibold))
+                        }
                     }
                 }
-            }
-        }.navigationBarBackButtonHidden(true)
-    }
-    
-    private func dragToCenterView(for note: Note) -> some View {
-        let dragGesture = DragGesture()
-            .onEnded { value in
-                if value.translation.width < -100 {
-                    if let index = viewModel.notes.firstIndex(where: { $0.id == note.id }) {
-                        viewModel.deleteNote(at: index)
-                    }
+                Button(action: {
+                    authViewModel.logout()
+                    dismiss.callAsFunction()
+                }) {
+                    Text("Logout")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.red)
+                        .cornerRadius(Constants.Button.cornerRadius)
                 }
+                .padding(.bottom, Constants.Button.bottomPadding)
             }
-        
-        return Rectangle()
-            .opacity(Constants.DragAnimation.opacity)
-            .frame(width: Constants.DragAnimation.width)
-            .offset(x: Constants.DragAnimation.offset)
-            .gesture(dragGesture)
+        }
+        .navigationBarBackButtonHidden(true)
+        .edgesIgnoringSafeArea(.bottom)
     }
     
     private func parseCreationDate(_ creationDate: String) -> String {
@@ -98,14 +95,19 @@ extension NoteListView {
             static let offset: CGFloat = -40
             static let opacity: CGFloat = 0
         }
+        struct Button {
+            static let cornerRadius: CGFloat = 10
+            static let bottomPadding: CGFloat = 10
+        }
         static let toolbarIconSize: CGFloat = 15
         static let noteElementSpacing: CGFloat = 8
+        
     }
 }
 
 
 struct NoteListView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteListView()
+        NoteListView(authViewModel: AuthenticationViewModel())
     }
 }

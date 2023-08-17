@@ -17,6 +17,9 @@
 		851A43C12A8D13AE0074E1A7 /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43C02A8D13AE0074E1A7 /* NoteDetailView.swift */; };
 		851A43C42A8D19DF0074E1A7 /* NoteListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43C32A8D19DF0074E1A7 /* NoteListViewModelProtocol.swift */; };
 		851A43C62A8D1E270074E1A7 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43C52A8D1E270074E1A7 /* AddNoteView.swift */; };
+		851A43CA2A8E2FCA0074E1A7 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43C92A8E2FCA0074E1A7 /* ItemView.swift */; };
+		851A43CC2A8E33450074E1A7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43CB2A8E33450074E1A7 /* MapView.swift */; };
+		851A43D12A8E53110074E1A7 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851A43D02A8E53110074E1A7 /* LocationError.swift */; };
 		85486A812A862CDF00EA6740 /* AwesomeNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A802A862CDF00EA6740 /* AwesomeNotesApp.swift */; };
 		85486A832A862CDF00EA6740 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85486A822A862CDF00EA6740 /* LoginView.swift */; };
 		85486A852A862CE000EA6740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85486A842A862CE000EA6740 /* Assets.xcassets */; };
@@ -66,6 +69,10 @@
 		851A43C02A8D13AE0074E1A7 /* NoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailView.swift; sourceTree = "<group>"; };
 		851A43C32A8D19DF0074E1A7 /* NoteListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModelProtocol.swift; sourceTree = "<group>"; };
 		851A43C52A8D1E270074E1A7 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		851A43C92A8E2FCA0074E1A7 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		851A43CB2A8E33450074E1A7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		851A43CF2A8E38630074E1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		851A43D02A8E53110074E1A7 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		85486A7D2A862CDF00EA6740 /* AwesomeNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwesomeNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85486A802A862CDF00EA6740 /* AwesomeNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeNotesApp.swift; sourceTree = "<group>"; };
 		85486A822A862CDF00EA6740 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -157,6 +164,8 @@
 				851A43B82A8CC37D0074E1A7 /* NoteListView.swift */,
 				851A43C02A8D13AE0074E1A7 /* NoteDetailView.swift */,
 				851A43C52A8D1E270074E1A7 /* AddNoteView.swift */,
+				851A43C92A8E2FCA0074E1A7 /* ItemView.swift */,
+				851A43CB2A8E33450074E1A7 /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				851A43BB2A8CD0E30074E1A7 /* Note.swift */,
+				851A43D02A8E53110074E1A7 /* LocationError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,6 +221,7 @@
 		85486A7F2A862CDF00EA6740 /* AwesomeNotes */ = {
 			isa = PBXGroup;
 			children = (
+				851A43CF2A8E38630074E1A7 /* Info.plist */,
 				85DF58132A8BA4B400C36384 /* Resources */,
 				85486AAA2A86433B00EA6740 /* Modules */,
 				85486A802A862CDF00EA6740 /* AwesomeNotesApp.swift */,
@@ -543,16 +554,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				85486A832A862CDF00EA6740 /* LoginView.swift in Sources */,
+				851A43D12A8E53110074E1A7 /* LocationError.swift in Sources */,
 				851A43AF2A8BB93A0074E1A7 /* RegisterView.swift in Sources */,
 				851A43B92A8CC37D0074E1A7 /* NoteListView.swift in Sources */,
 				85486A812A862CDF00EA6740 /* AwesomeNotesApp.swift in Sources */,
 				851A43C62A8D1E270074E1A7 /* AddNoteView.swift in Sources */,
 				85486AAF2A86494100EA6740 /* AuthenticationViewModel.swift in Sources */,
 				851A43BC2A8CD0E30074E1A7 /* Note.swift in Sources */,
+				851A43CC2A8E33450074E1A7 /* MapView.swift in Sources */,
 				851A43C42A8D19DF0074E1A7 /* NoteListViewModelProtocol.swift in Sources */,
 				85DF58122A8BA14300C36384 /* AuthResponse.swift in Sources */,
 				851A43A92A8BB2ED0074E1A7 /* AuthenticationViewModelProtocol.swift in Sources */,
 				851A43BF2A8CE7760074E1A7 /* NoteListViewModel.swift in Sources */,
+				851A43CA2A8E2FCA0074E1A7 /* ItemView.swift in Sources */,
 				85DF58102A8BA13900C36384 /* UserCredentials.swift in Sources */,
 				851A43C12A8D13AE0074E1A7 /* NoteDetailView.swift in Sources */,
 			);
@@ -717,6 +731,8 @@
 				DEVELOPMENT_TEAM = U7422ZFAR3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AwesomeNotes/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -747,6 +763,8 @@
 				DEVELOPMENT_TEAM = U7422ZFAR3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AwesomeNotes/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

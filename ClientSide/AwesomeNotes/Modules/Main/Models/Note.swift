@@ -8,9 +8,11 @@
 import Foundation
 
 struct Note: Identifiable, Codable {
-    let id = UUID()
+    let id: Int
     let title: String
     let description: String
     let createdAt: String
     let username: String
+    let latitude: String?
+    let longitude: String?
 }

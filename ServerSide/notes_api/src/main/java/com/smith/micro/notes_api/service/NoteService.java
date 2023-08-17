@@ -27,6 +27,8 @@ public class NoteService {
             NoteResponse noteResponse = NoteResponse.builder()
                     .id(note.getId())
                     .title(note.getTitle())
+                    .latitude(note.getLatitude())
+                    .longitude(note.getLongitude())
                     .description(note.getDescription())
                     .createdAt(note.getCreatedAt())
                     .username(note.getUser().getUsername()).build();
@@ -45,6 +47,8 @@ public class NoteService {
             NoteResponse noteResponse = NoteResponse.builder()
                     .id(note.getId())
                     .title(note.getTitle())
+                    .latitude(note.getLatitude())
+                    .longitude(note.getLongitude())
                     .description(note.getDescription())
                     .createdAt(note.getCreatedAt())
                     .username(note.getUser().getUsername()).build();
@@ -55,11 +59,13 @@ public class NoteService {
         return responseList;
     }
 
-    public NoteResponse addNote(String username, String description, String title) {
+    public NoteResponse addNote(String username, String description, String title, String latitude, String longitude) {
         User user = userRepository.findByUsername(username).orElseThrow();
         Note note = Note.builder()
                 .title(title)
                 .description(description)
+                .latitude(latitude)
+                .longitude(longitude)
                 .user(user)
                 .build();
         noteRepository.save(note);
@@ -67,19 +73,23 @@ public class NoteService {
         return NoteResponse.builder()
                 .id(note.getId())
                 .title(note.getTitle())
+                .latitude(note.getLatitude())
+                .longitude(note.getLongitude())
                 .createdAt(note.getCreatedAt())
                 .username(note.getUser().getUsername())
                 .description(note.getDescription()).build();
     }
 
-    public NoteResponse removeNote(String username, int noteId) {
-        Note note = noteRepository.findByUsernameAndId(username, noteId).orElseThrow();
+    public NoteResponse removeNote(int noteId) {
+        Note note = noteRepository.findById(noteId).orElseThrow();
 
         noteRepository.delete(note);
 
         return NoteResponse.builder()
                 .id(note.getId())
                 .title(note.getTitle())
+                .longitude(note.getLongitude())
+                .latitude(note.getLatitude())
                 .createdAt(note.getCreatedAt())
                 .username(note.getUser().getUsername())
                 .description(note.getDescription()).build();

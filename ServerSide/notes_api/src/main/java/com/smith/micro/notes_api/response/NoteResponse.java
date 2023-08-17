@@ -26,6 +26,12 @@ public class NoteResponse {
     @JsonProperty("description")
     private String description;
 
+    @JsonProperty("longitude")
+    private String longitude;
+
+    @JsonProperty("latitude")
+    private String latitude;
+
     @JsonProperty("createdAt")
     private Date createdAt;
 }

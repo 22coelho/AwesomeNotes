@@ -13,6 +13,8 @@ class NoteListViewModel: ObservableObject, NoteListViewModelProtocol {
     
     func addNote(title: String,
                  description: String,
+                 latitude: String? = nil,
+                 longitude: String? = nil,
                  completion: @escaping (Result<Note, Error>) -> Void) {
         let url = NSLocalizedString("serverPath", comment: "Path")
         guard let token = getTokenFromUserDefaults(), let username = getUserFromUserDefaults() else {
@@ -23,9 +25,11 @@ class NoteListViewModel: ObservableObject, NoteListViewModelProtocol {
             .authorization(bearerToken: token)
         ]
         
-        let body: [String: String] = [
+        let body: [String: String?] = [
             "title": title,
-            "description": description
+            "description": description,
+            "latitude": latitude,
+            "longitude": longitude
         ]
         
         AF.request("\(url)/notes/add?username=\(username)",
@@ -45,11 +49,68 @@ class NoteListViewModel: ObservableObject, NoteListViewModelProtocol {
         }
     }
     
-    func deleteNote(at index: Int) {
-        if index >= 0 && index < notes.count {
-            notes.remove(at: index)
+    func deleteNote(at indexSet: IndexSet) {
+        var removedNote: Note?
+        let url = NSLocalizedString("serverPath", comment: "Path")
+        
+        
+        indexSet.forEach { index in
+            removedNote = notes.remove(at: index)
         }
-        // need to send to server
+        
+        guard let token = getTokenFromUserDefaults(), let note = removedNote else {
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            .authorization(bearerToken: token)
+        ]
+        
+        AF.request("\(url)/notes/remove?noteId=\(note.id)",
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: headers)
+        .validate()
+        .responseDecodable(of: Note.self) { response in
+            switch response.result {
+            case .success(let note):
+                print("🍖 Note removed: \(note)")
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+        
+    }
+    
+    func deleteNote(noteId: Int) {
+        var removedNote: Note?
+        let url = NSLocalizedString("serverPath", comment: "Path")
+        
+        if let index = notes.firstIndex(where: { $0.id == noteId }) {
+            removedNote = notes.remove(at: index)
+        }
+        
+        guard let token = getTokenFromUserDefaults(), let note = removedNote else {
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            .authorization(bearerToken: token)
+        ]
+        
+        AF.request("\(url)/notes/remove?noteId=\(note.id)",
+                   method: .delete,
+                   encoding: JSONEncoding.default,
+                   headers: headers)
+        .validate()
+        .responseDecodable(of: Note.self) { response in
+            switch response.result {
+            case .success(let note):
+                print("🍖 Note removed: \(note)")
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
     }
     
     func loadNotes(completion: @escaping (Result<[Note], Error>) -> Void) -> [Note]?{

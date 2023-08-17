@@ -30,12 +30,14 @@ public class NoteController {
     public ResponseEntity<NoteResponse> addNote(@RequestParam String username, @RequestBody Map<String, String> requestBody) {
         String title = requestBody.get("title");
         String description = requestBody.get("description");
+        String latitude = requestBody.get("latitude");
+        String longitude = requestBody.get("longitude");
 
-        return ResponseEntity.ok(noteService.addNote(username, description, title));
+        return ResponseEntity.ok(noteService.addNote(username, description, title, latitude, longitude));
     }
 
     @DeleteMapping("/remove")
-    public ResponseEntity<NoteResponse> removeNote(@RequestParam String username, @RequestParam int noteId) {
-        return ResponseEntity.ok(noteService.removeNote(username, noteId));
+    public ResponseEntity<NoteResponse> removeNote(@RequestParam int noteId) {
+        return ResponseEntity.ok(noteService.removeNote(noteId));
     }
 }

@@ -23,6 +23,7 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
             case .success(let authResponse):
                 self.storeUserInfo(credentials)
                 self.storeToken(token: authResponse.access_token)
+                print("🍖 Username: \(credentials.username)")
                 completion(.success(authResponse))
             case .failure(let error):
                 completion(.failure(error))
@@ -34,7 +35,7 @@ class AuthenticationViewModel: AuthenticationViewModelProtocol {
                   completion: @escaping (Result<AuthResponse, Error>) -> Void) {
         let url = NSLocalizedString("serverPath", comment: "Path")
         
-        AF.request("\(url)/register?username=\(credentials.username)&password=\(credentials.password)",
+        AF.request("\(url)/users/register?username=\(credentials.username)&password=\(credentials.password)",
                    method: .post,
                    encoding: JSONEncoding.default)
         .validate()

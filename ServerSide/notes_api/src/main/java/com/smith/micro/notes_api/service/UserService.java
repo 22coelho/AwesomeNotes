@@ -30,13 +30,18 @@ public class UserService {
     }
 
     public AuthenticationResponse register(String username, String password) {
-        var user = User.builder()
+        if (userRepository.findByUsername(username).isPresent()) {
+            throw new RuntimeException();
+        }
+
+        var userBuilder = User.builder()
                 .username(username)
                 .password(password)
                 .build();
-        var savedUser = userRepository.save(user);
-        var jwtToken = jwtService.generateToken(user);
-        var refreshToken = jwtService.generateRefreshToken(user);
+
+        var savedUser = userRepository.save(userBuilder);
+        var jwtToken = jwtService.generateToken(userBuilder);
+        var refreshToken = jwtService.generateRefreshToken(userBuilder);
         saveUserToken(savedUser, jwtToken);
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
