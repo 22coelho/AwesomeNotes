@@ -18,6 +18,7 @@ struct RegisterView: View {
         VStack {
             Text("AwesomeNotes")
                 .font(.system(size: Constants.Title.size).weight(.bold))
+                .padding()
             
             VStack {
                 TextField("Username",
@@ -38,7 +39,6 @@ struct RegisterView: View {
                                 lineWidth: Constants.TextField.lineWidth)
                 )
             }
-            .padding(.top, Constants.TextField.topPadding)
             .padding(.bottom, Constants.TextField.bottomPadding)
             .padding(.horizontal)
             
@@ -99,7 +99,6 @@ extension RegisterView {
         }
         struct TextField {
             static let lineWidth: CGFloat = 2
-            static let topPadding: CGFloat = 150
             static let bottomPadding: CGFloat = 20
         }
         struct Button {
