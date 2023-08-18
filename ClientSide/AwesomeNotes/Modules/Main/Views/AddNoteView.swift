@@ -14,6 +14,7 @@ struct AddNoteView: View {
     @State private var description = ""
     @State private var shouldNavigate = false
     @State private var showErrorDialog = false
+    @State private var shouldUseLocation = false
     
     @StateObject private var locationManager = LocationManager()
     
@@ -36,6 +37,9 @@ struct AddNoteView: View {
                 }
                 
                 Section {
+                    Toggle(isOn: $shouldUseLocation) {
+                        Text("Use current location")
+                    }
                     Button("Save") {
                         addNote()
                     }.disabled(isButtonDisabled)
@@ -55,8 +59,11 @@ struct AddNoteView: View {
         if let error = locationManager.locationError {
             print("Location error: \(error.localizedDescription)")
         }
+        var location: CLLocationCoordinate2D?
         
-        let location = locationManager.currentLocation
+        if shouldUseLocation {
+            location = locationManager.currentLocation
+        }
         
         viewModel.addNote(title: title,
                           description: description,
