@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct AwesomeNotesApp: App {
+    let viewModel: AuthenticationViewModelProtocol = AuthenticationViewModel()
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            LoginView(viewModel: viewModel)
         }
     }
 }

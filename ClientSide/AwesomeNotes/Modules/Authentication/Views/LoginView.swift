@@ -12,7 +12,7 @@ struct LoginView: View {
     @State private var password = ""
     @State private var shouldNavigate = false
     @State private var showErrorDialog = false
-    private var viewModel = AuthenticationViewModel()
+    var viewModel: AuthenticationViewModelProtocol
     
     var body: some View {
         NavigationView {
@@ -26,6 +26,7 @@ struct LoginView: View {
                               text: $username)
                     .autocapitalization(.none)
                     .padding()
+                    .autocorrectionDisabled(true)
                     .overlay(
                         RoundedRectangle(cornerRadius: Constants.cornerRadius)
                             .stroke(Color.blue,
@@ -116,6 +117,6 @@ extension LoginView {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(viewModel: AuthenticationViewModel())
     }
 }

@@ -25,6 +25,7 @@ struct RegisterView: View {
                           text: $username)
                 .autocapitalization(.none)
                 .padding()
+                .autocorrectionDisabled(true)
                 .overlay(
                     RoundedRectangle(cornerRadius: Constants.cornerRadius)
                         .stroke(Color.blue,
